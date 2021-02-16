@@ -36,6 +36,17 @@ describe("Stoplight-specific (legacy) defaults", () => {
       expect(schema).to.deep.equal(require("./reference/openapi-2-bundled.js"));
     });
 
+    it("should no dereference schema", async () => {
+      let parser = new $RefParser();
+
+      const schema = await parser.bundle(path.rel("specs/custom-bundling-roots-legacy-stoplight/todos-reference/todos/openapi.json"), {
+        bundle: defaults.oas2,
+      });
+
+      expect(schema).to.equal(parser.schema);
+      expect(schema).to.deep.equal(require("./reference/openapi-2-todos-bundled.js"));
+    });
+
     it("should allow to customize bundling roots for OAS3", async () => {
       let parser = new $RefParser();
 
