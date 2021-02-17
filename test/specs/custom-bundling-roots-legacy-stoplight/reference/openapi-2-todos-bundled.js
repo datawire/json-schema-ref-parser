@@ -76,7 +76,7 @@ module.exports = {
             $ref: "#/responses/420",
           },
           500: {
-            $ref: "#/paths/~1todos/get/responses/500",
+            $ref: "#/responses/Shared_500",
           },
         },
       },
@@ -115,13 +115,13 @@ module.exports = {
             },
           },
           401: {
-            $ref: "#/paths/~1todos/post/responses/401",
+            $ref: "#/responses/Shared_401",
           },
           404: {
-            $ref: "#/paths/~1todos~1%7BtodoId%7D/get/responses/404",
+            $ref: "#/responses/Shared_404",
           },
           500: {
-            $ref: "#/paths/~1todos/get/responses/500",
+            $ref: "#/responses/Shared_500",
           },
         },
         security: [
@@ -139,13 +139,13 @@ module.exports = {
             description: "",
           },
           401: {
-            $ref: "#/paths/~1todos/post/responses/401",
+            $ref: "#/responses/Shared_401",
           },
           404: {
-            $ref: "#/paths/~1todos~1%7BtodoId%7D/get/responses/404",
+            $ref: "#/responses/Shared_404",
           },
           500: {
-            $ref: "#/paths/~1todos/get/responses/500",
+            $ref: "#/responses/Shared_500",
           },
         },
         security: [
@@ -191,19 +191,10 @@ module.exports = {
             },
           },
           401: {
-            description: "Our shared 401 response.",
-            schema: {
-              $ref: "#/definitions/Error",
-            },
-            examples: {
-              "application/json": {
-                code: "401",
-                message: "Not Authorized",
-              },
-            },
+            $ref: "$/responses/Shared_401"
           },
           500: {
-            $ref: "#/paths/~1todos/get/responses/500",
+            $ref: "#/responses/Shared_500",
           },
         },
         security: [
@@ -277,6 +268,42 @@ module.exports = {
         $ref: "#/definitions/User",
       },
     },
+    Shared_401: {
+      description: "Our shared 401 response.",
+      schema: {
+        $ref: "#/definitions/Error",
+      },
+      examples: {
+        "application/json": {
+          code: "401",
+          message: "Not Authorized",
+        },
+      },
+    },
+    Shared_404: {
+      description: "Our shared 404 response.",
+      schema: {
+        $ref: "#/definitions/Error",
+      },
+      examples: {
+        "application/json": {
+          code: "404",
+          message: "Not Found",
+        },
+      },
+    },
+    Shared_500: {
+      description: "Our shared 500 response.",
+      schema: {
+        $ref: "#/definitions/Error",
+      },
+      examples: {
+        "application/json": {
+          code: "500",
+          message: "Server Error",
+        },
+      },
+    }
   },
   definitions: {
     embedded: {
