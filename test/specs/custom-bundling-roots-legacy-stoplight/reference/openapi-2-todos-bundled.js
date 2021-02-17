@@ -61,16 +61,7 @@ module.exports = {
             },
           },
           404: {
-            description: "Our shared 404 response.",
-            schema: {
-              $ref: "#/definitions/Error",
-            },
-            examples: {
-              "application/json": {
-                code: "404",
-                message: "Not Found",
-              },
-            },
+            $ref: "#/responses/Shared_404",
           },
           420: {
             $ref: "#/responses/420",
@@ -191,7 +182,7 @@ module.exports = {
             },
           },
           401: {
-            $ref: "$/responses/Shared_401"
+            $ref: "#/responses/Shared_401"
           },
           500: {
             $ref: "#/responses/Shared_500",
@@ -238,16 +229,7 @@ module.exports = {
             },
           },
           500: {
-            description: "Our shared 500 response.",
-            schema: {
-              $ref: "#/definitions/Error",
-            },
-            examples: {
-              "application/json": {
-                code: "500",
-                message: "Server Error",
-              },
-            },
+            $ref: "#/responses/Shared_500"
           },
         },
       },
